@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: productpulse-web
+    env: docker
+    dockerfilePath: ./Dockerfile
+    autoDeploy: true
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: productpulse-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+
+databases:
+  - name: productpulse-db
+    databaseName: productpulse
+    user: productpulse

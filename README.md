@@ -51,6 +51,18 @@ npm run docker:up
 
 That starts PostgreSQL and the ProductPulse app on `http://localhost:5000`.
 
+## Deploy to Render
+
+This repository includes `render.yaml` for a Render Blueprint deployment.
+
+1. Push code to GitHub.
+2. In Render, choose **New +** -> **Blueprint**.
+3. Select this repository and confirm `render.yaml`.
+4. Render will provision:
+   - `productpulse-db` PostgreSQL database
+   - `productpulse-web` Docker web service
+5. After deploy, open `https://<your-render-service>.onrender.com/api/health` to verify status.
+
 ## Smoke test
 
 ```bash
