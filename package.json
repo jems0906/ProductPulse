@@ -1,0 +1,26 @@
+{
+  "name": "productpulse",
+  "version": "1.0.0",
+  "description": "ProductPulse monorepo",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install --prefix server --workspaces=false ; npm install --prefix client --workspaces=false",
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "echo Client is served by the Node server at http://localhost:5000",
+    "build:client": "npm run build --prefix client",
+    "test:api": "npm run test --prefix server",
+    "db:init": "npm run db:init --prefix server",
+    "smoke:test": "node server/src/scripts/smoke-test.js",
+    "start": "npm run start --prefix server",
+    "docker:up": "docker compose up --build",
+    "docker:down": "docker compose down -v"
+  },
+  "keywords": [
+    "feedback",
+    "roadmap",
+    "release-notes",
+    "product-management"
+  ],
+  "author": "",
+  "license": "MIT"
+}
